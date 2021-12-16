@@ -1,12 +1,11 @@
 const HDWalletProvider = require('@truffle/hdwallet-provider');
 const Web3 = require('web3');
 const { interface, bytecode } = require('./compile');
+require('dotenv').config()
 
-const provider = new HDWalletProvider(
-  'REPLACE_WITH_YOUR_MNEMONIC',
-  // remember to change this to your own phrase!
-  'https://rinkeby.infura.io/v3/15c1d32581894b88a92d8d9e519e476c'
-  // remember to change this to your own endpoint!
+provider = new HDWalletProvider(
+    process.env.MNEMONIC,
+    process.env.INFURA_URL,
 );
 const web3 = new Web3(provider);
 
